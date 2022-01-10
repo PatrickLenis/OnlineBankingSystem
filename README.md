@@ -2,7 +2,7 @@
 
 Patrick Lenis, Amalia Muresan, Paul Cvasa
 
-## Setun & Requirements
+## Setup & Requirements
 
 Python3 needs to be installed.
 
