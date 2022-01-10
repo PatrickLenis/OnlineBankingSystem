@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+    
+<div class="div-1">
+    <br><br><br><br>
+    <h1 align="center">WITHDRAW MONEY</h1>
+    <br>
+    <h2 align="center">Your Balance : {{ user.balance }} RON</h2>
+    <br><br><br><br>
+</div>
+
+<br><br>
+<form method="POST">
+    <div align="center">
+    <br><br>
+    <h5><label for="ammount">Enter Ammount To Withdraw : </label>
+    <input type="number" id="ammount" name="ammount"></h5>
+    <br><br>
+    <button type="submit" class="btn btn-primary">Withdraw Money</button>
+    </div>
+</form>
+<br><br>
+
+{% endblock %}

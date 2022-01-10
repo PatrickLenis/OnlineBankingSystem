@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+
+<div class="div-1">
+  <br><br><br><br><br><br>
+  <h1 align="center">WEB TECHNOLOGIES - ONLINE BANKING SYSTEM</h1>
+  <br>
+  <h2 align="center">Patrick Lenis, Amalia Muresan, Paul Cvasa</h2>
+  <br><br><br><br><br><br>
+</div>
+
+<div class="div-2">
+  <div class="container">
+    <br><br><br><br>
+    <h4 align="center">{{ user.first_name }}</h4>
+    <br>
+    <h5 align="center">{{ user.email }}</h5>
+    <br/>
+    <h4 align="center">Account Balance : {{ user.balance }} RON</h4>
+    <br><br><br><br>
+  </div>
+</div>
+
+<div class="div-3">
+<div class = "container">
+<br/><br>
+<h1 align="center">Transaction History</h1>
+<br/>
+
+{% if user.transactions %}
+<ul class="list-group list-group-flush" id="transactions">
+  
+    {% for transaction in user.transactions %}
+    <li class="list-group-item">
+      {{ transaction.data }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <h2 align="center">No History Available</h2>
+{% endif %}
+
+<br><br>
+</div>
+</div>
+
+<div class="container">
+  <br/><br/><br/><br/>
+  <h4 align="center">Shopping List</h4>
+  <br/><br/>
+  {% if user.notes %}
+  <ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+      {{ note.data }}
+      <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <h5 align="center">No Items Available</h5>
+  {% endif %}
+  <br/><br/><br/><br/>
+  <h5 align="center">Add Shopping List Item</h5>
+  <form method="POST">
+    <textarea name="note" id="note" class="form-control"></textarea>
+    <br/>
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </div>
+  </form>
+  <br/><br/><br/><br/>
+</div>
+{% endblock %}
